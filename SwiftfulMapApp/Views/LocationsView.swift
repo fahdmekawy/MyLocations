@@ -18,7 +18,8 @@ struct LocationsView: View {
                 Spacer()
                 locationsPreviewStack
             }
-        }.sheet(item: $vm.sheetLocation, onDismiss: nil) { location in
+        }
+        .sheet(item: $vm.sheetLocation) { location in
             LocationDetailsView(location: location)
         }
     }
@@ -60,7 +61,10 @@ extension LocationsView{
     }
     
     private var mapLayer: some View{
-        Map(coordinateRegion: $vm.mapRegion,annotationItems: vm.locations,annotationContent: { location in
+        Map(
+            coordinateRegion: $vm.mapRegion,
+            annotationItems: vm.locations,
+            annotationContent: { location in
             MapAnnotation(coordinate: location.coordinates) {
                 LocationMapAnnotaionView()
                     .scaleEffect(vm.mapLocation == location ? 1 : 0.7)

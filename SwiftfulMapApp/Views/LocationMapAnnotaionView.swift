@@ -9,11 +9,10 @@ struct LocationMapAnnotaionView: View {
                 .resizable()
                 .scaledToFit()
                 .frame(width: 30,height: 30)
-                .font(.headline)
                 .foregroundColor(.white)
                 .padding(6)
                 .background(accentColor)
-                .cornerRadius(36)
+                .cornerRadius(25)
             
             Image(systemName: "triangle.fill")
                 .resizable()
